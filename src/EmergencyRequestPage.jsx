@@ -45,7 +45,6 @@ export default function EmergencyRequestPage() {
   const [error, setError] = useState("");
   const [result, setResult] = useState(null);
 
-// selection facilities
  useEffect(() => {
     if (isFacilityMode) return;
 
@@ -83,7 +82,7 @@ export default function EmergencyRequestPage() {
 
     const payload = isFacilityMode
       ? {
-          source: facilityUser.role, // "hospital" | "clinic"
+          source: facilityUser.role,
           facilityId: facilityUser.facilityId,
           patientName: form.patientName || "Unknown",
           age: form.age || "Unknown",
