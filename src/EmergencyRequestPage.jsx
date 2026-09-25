@@ -21,7 +21,7 @@ function priorityStyle(priority) {
 export default function EmergencyRequestPage() {
   const location = useLocation();
   const navigate = useNavigate();
-  const facilityUser = location.state?.facilityUser || null; // set after hospital/clinic login
+  const facilityUser = location.state?.facilityUser || null; //
   const isFacilityMode = !!facilityUser;
 
   const [facilities, setFacilities] = useState([]);
