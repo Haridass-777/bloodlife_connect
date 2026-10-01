@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getVerifiedFacilities } from "./services/facilityService";
-import "./EmergencyRequestPage.css";
+//import "./EmergencyRequestPage.css";
 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
