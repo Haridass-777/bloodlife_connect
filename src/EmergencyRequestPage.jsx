@@ -20,7 +20,7 @@ function priorityStyle(priority) {
 export default function EmergencyRequestPage() {
   const location = useLocation();
   const navigate = useNavigate();
-  const facilityUser = location.state?.facilityUser || null; // set after hospital/clinic login
+  const facilityUser = location.state?.facilityUser || null; //
   const isFacilityMode = !!facilityUser;
 
   const [facilities, setFacilities] = useState([]);
@@ -44,7 +44,6 @@ export default function EmergencyRequestPage() {
   const [error, setError] = useState("");
   const [result, setResult] = useState(null);
 
-// selection facilities
  useEffect(() => {
     if (isFacilityMode) return;
 
@@ -82,7 +81,7 @@ export default function EmergencyRequestPage() {
 
     const payload = isFacilityMode
       ? {
-          source: facilityUser.role, // "hospital" | "clinic"
+          source: facilityUser.role,
           facilityId: facilityUser.facilityId,
           patientName: form.patientName || "Unknown",
           age: form.age || "Unknown",
