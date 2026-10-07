@@ -1,17 +1,17 @@
 import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import {
+/*import {
   registerDonor,
   getDonorProfile,
   getDonorRequestHistory,
   updateDonorAvailability,
 } from "./services/donorService";
-import { findRequestsForDonor, updateDonorResponse } from "./services/searchService";
+import { findRequestsForDonor, updateDonorResponse } from "./services/searchService";*/
 import "./DonorPage.css";
 
-// ============================================
+ 
 // CONSTANTS
-// ============================================
+ 
 const BLOOD_GROUPS = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"];
 
 const BADGES = [
@@ -33,9 +33,9 @@ const NAV_ITEMS = [
   { id: "profile", label: "Profile" },
 ];
 
-// ============================================
+ 
 // HELPERS
-// ============================================
+ 
 function calcAge(dobStr) {
   if (!dobStr) return null;
   const dob = new Date(dobStr);
@@ -57,9 +57,9 @@ function daysUntil(dateObj) {
   return Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
 }
 
-// ============================================
+ 
 // FIELD / VERIFIED TAG
-// ============================================
+ 
 function Field({ label, hint, error, children }) {
   return (
     <label className="dp-field">
@@ -83,9 +83,9 @@ function VerifiedTag() {
   );
 }
 
-// ============================================
+ 
 // REGISTRATION WIZARD (class names now match DonorPage.css)
-// ============================================
+ 
 function DonorRegistration({ onComplete, submitting }) {
   const [step, setStep] = useState(0);
   const [errors, setErrors] = useState({});
@@ -467,9 +467,9 @@ function DonorRegistration({ onComplete, submitting }) {
   );
 }
 
-// ============================================
+ 
 // SUCCESS SCREEN
-// ============================================
+ 
 function SuccessScreen({ profile }) {
   const navigate = useNavigate();
   const age = calcAge(profile.dob);
@@ -528,9 +528,9 @@ function SuccessScreen({ profile }) {
   );
 }
 
-// ============================================
+ 
 // DASHBOARD PANELS
-// ============================================
+ 
 function AvailabilityPanel({ profile, onRefresh }) {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
@@ -764,9 +764,7 @@ function DonorProfilePanel({ profile }) {
   );
 }
 
-// ============================================
 // DONOR DASHBOARD (logged-in view — this was missing entirely)
-// ============================================
 function DonorDashboard({ user }) {
   const [active, setActive] = useState("overview");
   const [profile, setProfile] = useState(null);
@@ -846,9 +844,9 @@ function DonorDashboard({ user }) {
   );
 }
 
-// ============================================
+ 
 // MAIN DONOR PAGE
-// ============================================
+ 
 export default function DonorPage() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -879,7 +877,7 @@ export default function DonorPage() {
   }
 
   if (success && profile) {
-    return <SuccessScreen profile={profile} />;
+    return <SuccessScreen profile={profile}/>;
   }
 
   return (
